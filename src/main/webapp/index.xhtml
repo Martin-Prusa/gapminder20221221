@@ -8,16 +8,39 @@
 
 <ui:composition template="fragments/template.xhtml">
     <ui:define name="content">
-        <h2>Years</h2>
-        <ul class="list-group">
-            <ui:repeat value="#{gapminderService.years}" var="year">
-                <li class="list-group-item">
-                    <h:link outcome="year-detail.xhtml" value="#{year}">
-                        <f:param value="#{year}" name="year" />
-                    </h:link>
-                </li>
-            </ui:repeat>
-        </ul>
+        <div>
+            <h2>Years</h2>
+            <ul class="list-group">
+                <ui:repeat value="#{gapminderService.years}" var="year">
+                    <li class="list-group-item">
+                        <h:link outcome="year-detail.xhtml" value="#{year}">
+                            <f:param value="#{year}" name="year" />
+                        </h:link>
+                    </li>
+                </ui:repeat>
+            </ul>
+        </div>
+        <div class="mt-5">
+            <h2>Continents - Celkový průměr</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Continent</th>
+                    <th scope="col">lifeExp</th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                <ui:repeat value="#{gapminderService.continents}" var="c" varStatus="status">
+                    <tr>
+                        <th scope="row">#{status.index + 1}</th>
+                        <td>#{c.country}</td>
+                        <td>#{c.lifeExp}</td>
+                    </tr>
+                </ui:repeat>
+                </tbody>
+            </table>
+        </div>
     </ui:define>
 </ui:composition>
 

@@ -74,7 +74,7 @@ public class GapminderRepository {
             """);
 
             while (resultSet.next()) {
-                continents.add(new Country(resultSet.getString(1), resultSet.getDouble(2)));
+                continents.add(new Country(resultSet.getString(1), Math.round(resultSet.getDouble(2)*1000) / 1000.0));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

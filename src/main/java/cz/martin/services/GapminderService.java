@@ -22,4 +22,8 @@ public class GapminderService {
     public List<Country> getCountries(int year) {
         return gapminderRepository.getCountries(year);
     }
+
+    public List<Country> getContinents() {
+        return gapminderRepository.getContinents();
+    }
 }
