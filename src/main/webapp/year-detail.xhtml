@@ -7,20 +7,39 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <ui:composition template="fragments/template.xhtml">
    <ui:define name="content">
-      <h2>#{yearDetailBean.year}</h2>
+      <h2>#{yearDetailBean.year} - Continents</h2>
       <div class="container-sm">
          <table class="table table-striped">
+            <col style="width:50%" span="2" />
             <thead>
             <tr>
-               <th scope="col">#</th>
+               <th scope="col">Continent</th>
+               <th scope="col">lifeExp</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+            <ui:repeat value="#{yearDetailBean.continents}" var="c">
+               <tr>
+                  <td>#{c.country}</td>
+                  <td>#{c.lifeExp}</td>
+               </tr>
+            </ui:repeat>
+            </tbody>
+         </table>
+      </div>
+      <h2>#{yearDetailBean.year} - Countries</h2>
+      <div class="container-sm">
+         <table class="table table-striped">
+            <col style="width:50%" span="2" />
+            <thead>
+            <tr>
                <th scope="col">Country</th>
                <th scope="col">lifeExp</th>
             </tr>
             </thead>
             <tbody class="table-group-divider">
-            <ui:repeat value="#{yearDetailBean.countries}" var="c" varStatus="status">
+            <ui:repeat value="#{yearDetailBean.countries}" var="c">
                <tr>
-                  <th scope="row">#{status.index + 1}</th>
                   <td>#{c.country}</td>
                   <td>#{c.lifeExp}</td>
                </tr>

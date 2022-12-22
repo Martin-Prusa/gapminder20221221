@@ -22,4 +22,8 @@ public class YearDetailBean {
     public List<Country> getCountries() {
         return gapminderService.getCountries(getYear());
     }
+
+    public List<Country> getContinents() {
+        return gapminderService.getContinentsYear(getYear());
+    }
 }
